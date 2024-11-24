@@ -1,0 +1,16 @@
+### Method Not Allowed response
+GET http://localhost:8080
+
+### Error response
+POST http://localhost:8080
+
+{
+    "expression": "kk"
+}
+### Valid response
+POST http://localhost:8080
+
+{
+    "expression": "-45.5-(2.4*3.7)"
+}
+
