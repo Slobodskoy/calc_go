@@ -14,13 +14,13 @@ func (*CalcHandler) Calc(w http.ResponseWriter, r *http.Request) {
 	request, err := parseCalcRequest(r)
 	if err != nil {
 		w.WriteHeader(400)
-		fmt.Fprintf(w, "{\"error\": \"%s\"}", err.Error())
+		fmt.Fprintf(w, "{\"error\": \"%s\"}", "Invalid request")
 		return
 	}
 	result, err := calc.Calc(request.Expression)
 	if err != nil {
 		w.WriteHeader(422)
-		fmt.Fprintf(w, "{\"error\": \"%s\"}", err.Error())
+		fmt.Fprintf(w, "{\"error\": \"%s\"}", "Expression is not valid")
 		return
 	}
 	fmt.Fprintf(w, "{\"result\": \"%f\"}", result)

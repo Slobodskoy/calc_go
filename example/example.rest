@@ -1,25 +1,25 @@
 ### Метод GET не доступен, используется POST
-GET http://localhost:8080
+GET http://localhost:8080/api/v1/calculate
 ### Curl аналог метода GET
 curl --request GET \
-  --url http://localhost:8080/ \
+  --url http://localhost:8080/api/v1/calculate
 ### Ответ сервера 422(Unprocessable Entity) необрабатываемая сущность
-POST http://localhost:8080
+POST http://localhost:8080/api/v1/calculate
 
 {
     "expression": "kk"
 }
 ### Curl аналог метода POST
 curl --request POST \
-  --url http://localhost:8080/ \
+  --url http://localhost:8080/api/v1/calculate \
   --data '{"expression": "kk"}'
 ### Верный запрос на вычисление выражения
-POST http://localhost:8080
+POST http://localhost:8080/api/v1/calculate
 
 {
     "expression": "-45.5-(2.4*3.7)"
 }
 ### Curl аналог верного запроса на вычисление выражения
 curl --request POST \
-  --url http://localhost:8080/ \
-  --data '{"expression": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000*1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000*1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000*1000000000000000000000000000000*1000000000000000000000000000000"}'
+  --url http://localhost:8080/api/v1/calculate \
+  --data '{"expression": "-45.5-(2.4*3.7)"}'

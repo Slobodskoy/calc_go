@@ -31,7 +31,7 @@ func (a *App) Run() {
 	handler := new(api.CalcHandler)
 	handlerWithLog := middleware.AccessLog(handler.Calc)
 	handlerWithRecovery := middleware.Recovery(handlerWithLog)
-	http.HandleFunc("POST /", handlerWithRecovery)
+	http.HandleFunc("POST /api/v1/calculate", handlerWithRecovery)
 	slog.Info("start http server", slog.Int("port", a.cfg.Port))
 	if err := http.ListenAndServe(fmt.Sprintf(":%d", a.cfg.Port), nil); err != nil {
 		log.Fatal(err)
