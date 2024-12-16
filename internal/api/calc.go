@@ -19,7 +19,7 @@ func (*CalcHandler) Calc(w http.ResponseWriter, r *http.Request) {
 	}
 	result, err := calc.Calc(request.Expression)
 	if err != nil {
-		w.WriteHeader(400)
+		w.WriteHeader(422)
 		fmt.Fprintf(w, "{\"error\": \"%s\"}", err.Error())
 		return
 	}
